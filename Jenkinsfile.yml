@@ -7,31 +7,31 @@ pipeline {
     stages {
         stage('Cleanup WorkSpace') {
             steps {
-                cleanWs() //It is a function provided by the Pipeline Utility Steps Plugin in Jenkins.
-                          //It is specifically designed for Jenkins Pipelines to clean up the workspace used during a build.
+              sh 'whoami'
+              sh 'pwd'
+              sh 'ifconfig'
             }
         }
     }
-    stages {
-        stage('Checkout From SCM') {
-            steps { // Same with GitPull
-                git branch : 'main', credentialsId : 'Github' , url : 'https://github.com/NHKyaw/Devops_Lab_register-app.git'
-            }
-        }
-    }
-    stages {
-        stage('Build Application') {
-            steps {
-                sh 'mvn clean package'
-            }
-        }
-    }
-    stages {
-        stage('Test Application') {
-            steps {
-                sh 'mvn test'
-            }
-        }
-    }
+    // stages {
+    //     stage('Checkout From SCM') {
+    //         steps { // Same with GitPull
+    //             git branch : 'main', credentialsId : 'Github' , url : 'https://github.com/NHKyaw/Devops_Lab_register-app.git'
+    //         }
+    //     }
+    // }
+    // stages {
+    //     stage('Build Application') {
+    //         steps {
+    //             sh 'mvn clean package'
+    //         }
+    //     }
+    // }
+    // stages {
+    //     stage('Test Application') {
+    //         steps {
+    //             sh 'mvn test'
+    //         }
+    //     }
+    // }
 }
-
