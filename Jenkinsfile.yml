@@ -3,6 +3,11 @@
         node {
             label 'Jenkins_Agent'}
     }
+        tools {
+        maven 'Maven3' // Name configured in Global Tool Configuration
+        java 'Java17'
+}
+
         stages {
             stage('Cleanup WorkSpace') {
                 steps {
@@ -17,7 +22,7 @@
 
             stage('Build Application') {
                 steps {
-                    sh 'mvn clean package'
+                    sh 'pwd'
                 }
             }
 
